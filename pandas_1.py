@@ -29,4 +29,27 @@ personagens_df.rename(columns={
     'nome':'Nome Completo',
     'idade':'Idade'},inplace=True)
 
-print(personagens_df)
+
+
+personagens_df.columns = ['NOME','IDADE','PESO','EH_JEDI']
+
+# SERIES
+# selecioando uma coluna inteira
+
+print(data.ESTADO) # Não é recomendado
+
+
+print(data['ESTADO'])
+
+print(type(data['ESTADO']))
+
+print(data.iloc[1]) # Acessando a segunda linha
+
+
+print(pd.Series([5.5,6.0,9.5],index=['Prova1','Prova2','Projeto'],name='Notas'))
+
+
+
+
+
+
