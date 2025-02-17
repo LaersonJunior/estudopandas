@@ -3,13 +3,13 @@ import pandas as pd
 # Carregando o dataset corretamente que utiliza o separador ";"
 data = pd.read_csv('D:\GitHub\EstudoPandas\.venv\dataset\GasPricesinBrazil_2004-2019.csv', sep=';')
 
-# Verificar tipo, colunas e se obtem valor Null
-print(data.dtypes,
-      data.head(),
-      data.isnull().sum())
+# # Verificar tipo, colunas e se obtem valor Null
+# print(data.dtypes,
+#       data.head(),
+#       data.isnull().sum())
 
 # # Corrigido para acessar corretamente as dimensões
-print(f'O Dataframe possui {data.shape[0]} linhas/observações/registros e {data.shape[1]} colunas/variáveis/atributos')
+# print(f'O Dataframe possui {data.shape[0]} linhas/observações/registros e {data.shape[1]} colunas/variáveis/atributos')
 
 
 personagens_df = pd.DataFrame({
@@ -36,19 +36,38 @@ personagens_df.columns = ['NOME','IDADE','PESO','EH_JEDI']
 # SERIES
 # selecioando uma coluna inteira
 
-print(data.ESTADO) # Não é recomendado
+# print(data.ESTADO) # Não é recomendado
 
 
-print(data['ESTADO'])
+# print(data['ESTADO'])
 
-print(type(data['ESTADO']))
+# print(type(data['ESTADO']))
 
-print(data.iloc[1]) # Acessando a segunda linha
-
-
-print(pd.Series([5.5,6.0,9.5],index=['Prova1','Prova2','Projeto'],name='Notas'))
+# print(data.iloc[1]) # Acessando a segunda linha
 
 
+# print(pd.Series([5.5,6.0,9.5],index=['Prova1','Prova2','Projeto'],name='Notas'))
+
+# Quanto utiliza a cosntante, somente é um view do dataframe.
+produto_view = (data['PRODUTO']) 
+
+# Cópia do dataframe
+produto_copy_bkp=data['PRODUTO'].copy()
+
+# Atribuindo o valor constante 'Combustivel' a todos os registros da coluna 'PRODUTO'
+# data['PRODUTO'] = 'Combustivel'
+
+nrows, ncols = data.shape
+
+
+novos_produtos = [ f'Produto {i}' for i in range(nrows)]
+
+# A Quantidade de elementos da lista deve ser igual ao número de linhas do dataframe
+data['PRODUTO'] = novos_produtos
+
+data['PRODUTO']= produto_copy_bkp
+
+print(data)
 
 
 
