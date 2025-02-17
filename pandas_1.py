@@ -67,6 +67,17 @@ data['PRODUTO'] = novos_produtos
 
 data['PRODUTO']= produto_copy_bkp
 
+# Criando uma coluna a partir de um valor constante/default
+data['Coluna sem Nocao'] = 'DEFAULT'
+
+# Criando uma coluina a partir de uma lista
+data['Coluna a Partir de Lista'] =  range(data.shape[0])
+
+# # Não funciona, devido a quantidade linhas do dataframe
+# data['Não Funcionana'] = [1,2,3]
+
+data['PREÇO MÉDIO REVENDA (dólares)'] = data['PREÇO MÉDIO REVENDA'] * 6.0
+
 print(data)
 
 
